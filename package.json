@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/lsotoj/Backend/issues"
   },
-  "homepage": "https://github.com/lsotoj/Backend#readme"
+  "homepage": "https://github.com/lsotoj/Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
