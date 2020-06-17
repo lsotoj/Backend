@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(router);
 
 
+
 router.get('/messaje', function(req, res){
     console.log(req.headers);
     res.header({
@@ -27,6 +28,7 @@ router.post('/messaje', function(req, res){
     }
 });
 
+app.use('/app', express.static('public'));
 
 app.listen(3000);
 console.log('la aplicacion está escuchando en http://localhost:3000');
