@@ -3,7 +3,6 @@ const Model = require('./model');
 const db = require('mongoose');
 
 db.Promise = global.Promise;
-//mongodb+srv://lsotoj:8L99QsbBzbbi81m2@cluster0-fprvp.mongodb.net/Chat?retryWrites=true&w=majority
 db.connect('mongodb+srv://lsotoj:8L99QsbBzbbi81m2@cluster0-fprvp.mongodb.net/Chat?retryWrites=true&w=majority', {
     useNewUrlParser: true, useUnifiedTopology: true,
 });
@@ -15,14 +14,27 @@ function addMessage(message) {
     myMessage.save();
 }
 
-function getMessages() {
-    return list;
+async function getMessages() {
+    //return list;
+    const messages = await Model.find();
+    return messages;
+}
+
+async function updateText(id, message) {
+    const foundMessage = await Model.findOne({
+        _id: id
+    });
+
+    foundMessage.message = message;
+
+    const newMessage = await foundMessage.save();
+    return newMessage;
 }
 
 module.exports = {
     add: addMessage,
     list: getMessages,
+    updateText: updateText,
     //get
-    //update
     //delete
 }
