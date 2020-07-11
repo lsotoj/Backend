@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-//const router = require('./components/message/network');
+const db = require('./db');
+
 const router = require('./network/routes');
+
+db('mongodb+srv://lsotoj:8L99QsbBzbbi81m2@cluster0-fprvp.mongodb.net/Chat?retryWrites=true&w=majority');
 
 var app = express();
 app.use(bodyParser.json());

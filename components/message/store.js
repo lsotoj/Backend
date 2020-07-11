@@ -1,12 +1,4 @@
-const { Mongoose } = require("mongoose");
 const Model = require('./model');
-const db = require('mongoose');
-
-db.Promise = global.Promise;
-db.connect('mongodb+srv://lsotoj:8L99QsbBzbbi81m2@cluster0-fprvp.mongodb.net/Chat?retryWrites=true&w=majority', {
-    useNewUrlParser: true, useUnifiedTopology: true,
-});
-console.log('[db] Conectada con éxito');
 
 function addMessage(message) {
 
