@@ -14,7 +14,7 @@ router.post('/', function(req, res) {
         });
 });
 
-router.get('/', function(req, res){
+router.get('/:userId', function(req, res){
   
     controller.getChat()
         .then((messageList) => {

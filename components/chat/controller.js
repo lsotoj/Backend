@@ -3,8 +3,8 @@ const store = require('./store');
 function addChat(users) {
 
     return new Promise((resolve, reject) => {
-        if(!users) {
-            console.error('[messageController] No hay datos de usuarios');
+        if(!users || !Array.isArray(users) ) {
+            console.error('[Chat Controller] Error en la lista de usuarios');
             return reject('Los datos son incorrectos');
         }
 
@@ -18,10 +18,10 @@ function addChat(users) {
   
 }
 
-function getChat() {
+function getChat(userId) {
     return new Promise((resolve, reject) => {
-        resolve(store.list());
-    })
+        resolve(store.list(userId));
+    });
 }
 module.exports = {
     addChat,
